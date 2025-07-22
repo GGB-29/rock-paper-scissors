@@ -32,6 +32,34 @@ function getHumanChoice() {
     return choice;
 }
 
+function playRound(humanChoice, computerChoice) {
+    /*
+    Function to carry out a round of the game
+    */
+   //make user input case insensitive
+   humanChoice = humanChoice.toLowerCase();
+
+   if (humanChoice === computerChoice) {
+    console.log("It's a Draw!")
+   } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
+    console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+    humanScore++;
+   } else {
+    console.log(`You lose! ${humanChoice} loses to ${computerChoice}`);
+    computerScore++;
+   }
+
+}
+
 //Main program
-console.log(getComputerChoice());
-console.log(getHumanChoice());
+
+//initialise scores to 0
+let humanScore = 0;
+let computerScore = 0;
+
+//get player moves
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+//carry out round of game
+playRound(humanSelection, computerSelection);
