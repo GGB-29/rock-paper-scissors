@@ -39,27 +39,48 @@ function playRound(humanChoice, computerChoice) {
    //make user input case insensitive
    humanChoice = humanChoice.toLowerCase();
 
-   if (humanChoice === computerChoice) {
-    console.log("It's a Draw!")
-   } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
-    console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
-    humanScore++;
-   } else {
-    console.log(`You lose! ${humanChoice} loses to ${computerChoice}`);
-    computerScore++;
-   }
+   //decide winner based on given moves
+    if (humanChoice === computerChoice) {
+        humanScore++;
+        computerScore++;
+        console.log(`It's a Draw!  Score: Player ${humanScore} - ${computerScore} Computer`)
+    } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
+        humanScore++;
+        console.log(`Round won! ${humanChoice} beats ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`);
+    } else {
+        computerScore++;
+        console.log(`Round lost! ${humanChoice} loses to ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`);
+    }
 
 }
 
-//Main program
+function playGame() {
+    /*
+    Function to play whole game
+    */
+
+    //execute five rounds of the game
+    for (let i = 0; i < 5; i++) {
+        //get player moves
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        //carry out round of game
+        playRound(humanSelection, computerSelection);
+    }
+
+    //output message to declare overall winner
+    if (humanScore > computerScore) {
+        console.log("Game over: Player wins!");
+    } else if (computerScore > humanScore) {
+        console.log("Game over: Computer wins!");
+    } else {
+        console.log("Game over: It's a draw!");
+    }
+}
 
 //initialise scores to 0
 let humanScore = 0;
 let computerScore = 0;
-
-//get player moves
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-//carry out round of game
-playRound(humanSelection, computerSelection);
+//Start game
+playGame();
