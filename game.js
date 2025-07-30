@@ -39,17 +39,19 @@ function playRound(humanChoice, computerChoice) {
    //make user input case insensitive
    humanChoice = humanChoice.toLowerCase();
 
+   let result = document.querySelector('#result');
+
    //decide winner based on given moves
     if (humanChoice === computerChoice) {
         humanScore++;
         computerScore++;
-        console.log(`It's a Draw!  Score: Player ${humanScore} - ${computerScore} Computer`)
+        result.textContent = `It's a Draw!  Score: Player ${humanScore} - ${computerScore} Computer`;
     } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
-        console.log(`Round won! ${humanChoice} beats ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`);
+        result.textContent = `Round won! ${humanChoice} beats ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`;
     } else {
         computerScore++;
-        console.log(`Round lost! ${humanChoice} loses to ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`);
+        result.textContent = `Round lost! ${humanChoice} loses to ${computerChoice}. Score: Player ${humanScore} - ${computerScore} Computer`;
     }
 
 }
@@ -58,7 +60,7 @@ function playGame() {
     /*
     Function to play whole game
     */
-
+    /*
     //execute five rounds of the game
     for (let i = 0; i < 5; i++) {
         //get player moves
@@ -77,10 +79,15 @@ function playGame() {
     } else {
         console.log("Game over: It's a draw!");
     }
+    */
 }
+//get all button references
+let buttons = document.querySelectorAll('button');
+//for each button press, trigger game played with given move
+buttons.forEach(button => {button.addEventListener('click', playRound(button.id))});
 
 //initialise scores to 0
 let humanScore = 0;
 let computerScore = 0;
 //Start game
-playGame();
+//playGame();
