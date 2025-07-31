@@ -33,8 +33,7 @@ function playRound(humanChoice, computerChoice) {
 
    //decide winner based on given moves
     if (humanChoice === computerChoice) {
-        humanScore++;
-        computerScore++;
+        roundCount--;
         result.textContent = `It's a Draw!  Score: Player ${humanScore} - ${computerScore} Computer`;
     } else if (humanChoice === "rock" && computerChoice === "scissors" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "scissors" && computerChoice === "paper") {
         humanScore++;
@@ -54,11 +53,11 @@ function endGame() {
     let result = document.querySelector('#result');
     //output message to declare overall winner
     if (humanScore > computerScore) {
-        result.textContent = "Game over: Player wins!";
+        result.textContent = `Game over: Player wins! Score: Player ${humanScore} - ${computerScore} Computer`;
     } else if (computerScore > humanScore) {
-        result.textContent = "Game over: Computer wins!";
+        result.textContent = `Game over: Computer wins! Score: Player ${humanScore} - ${computerScore} Computer`;
     } else {
-        result.textContent = "Game over: It's a draw!";
+        result.textContent = `Game over: It's a draw! Score: Player ${humanScore} - ${computerScore} Computer`;
     }
 }
 //get all button references
