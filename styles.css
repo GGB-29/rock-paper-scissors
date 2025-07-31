@@ -1,0 +1,63 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    flex: auto;
+}
+
+#rockText{
+    font-family: 'Metal Mania', cursive;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #eee;
+    text-shadow: 2px 2px 6px #000;
+}
+
+#paperText{
+    font-family: 'Rubik Mono One', monospace;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: rgb(241, 239, 239);
+    text-shadow: 2px 2px 0 #ccc;
+    padding: 1rem;
+    letter-spacing: 2px;
+}
+
+#scissorsText{
+    font-family: 'Black Ops One', sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #ddd;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 0 #999, -1px -1px 0 #666;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    
+}
+
+#rock, #paper, #scissors {
+    font-family: 'Rubik Mono One', monospace;
+    color: black;
+    font-size:1rem;
+    padding: 2px;
+}
+
+#result {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+    font-family: 'Rubik Mono One', monospace;
+    color: #f7e708;
+    
+}
